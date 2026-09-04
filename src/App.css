@@ -9,95 +9,121 @@ body {
   color: #1e293b;
 }
 
-.container {
-  min-height: 100vh;
-  padding: 50px 20px;
+.navbar {
+  background: #1e293b;
+  color: white;
+  padding: 16px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.form-card,
-.result-card {
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto 25px;
-  background: #ffffff;
-  padding: 30px;
+.brand {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  color: #93c5fd;
+}
+
+.page {
+  max-width: 1000px;
+  margin: 45px auto;
+  padding: 20px;
+}
+
+.hero {
+  text-align: center;
+  background: white;
+  padding: 45px 25px;
   border-radius: 14px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
 }
 
-h1,
-h2 {
+.hero h1 {
+  margin-top: 0;
+  font-size: 36px;
+}
+
+.hero p {
+  color: #64748b;
+  font-size: 17px;
+}
+
+.student-card,
+.details-card,
+.course-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  margin-top: 25px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.course-card {
   margin-top: 0;
 }
 
-h1 {
-  text-align: center;
-  font-size: 28px;
+.course-card h2 {
+  margin-top: 0;
 }
 
-.subtitle {
-  text-align: center;
+.course-card p {
   color: #64748b;
-  margin-bottom: 25px;
+  line-height: 1.6;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  margin: 12px 0 7px;
-  font-weight: 600;
-}
-
-input,
-select {
-  padding: 12px;
-  border: 1px solid #cbd5e1;
-  border-radius: 7px;
-  font-size: 15px;
-  outline: none;
-}
-
-input:focus,
-select:focus {
-  border-color: #2563eb;
-}
-
-button {
-  margin-top: 24px;
-  padding: 13px;
-  border: none;
-  border-radius: 7px;
+.button {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 16px;
   background: #2563eb;
   color: white;
-  font-size: 16px;
+  text-decoration: none;
+  border-radius: 7px;
   font-weight: 600;
-  cursor: pointer;
 }
 
-button:hover {
+.button:hover {
   background: #1d4ed8;
 }
 
-.result-card h2 {
-  text-align: center;
-  margin-bottom: 20px;
+.enrolled {
+  margin: 25px 0;
+  padding: 18px;
+  background: #eff6ff;
+  border-radius: 8px;
 }
 
-.detail {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 13px 0;
-  border-bottom: 1px solid #e2e8f0;
-}
+@media (max-width: 650px) {
+  .navbar {
+    flex-direction: column;
+    gap: 12px;
+  }
 
-.detail:last-child {
-  border-bottom: none;
-}
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
 
-.detail span {
-  color: #64748b;
+  .hero h1 {
+    font-size: 28px;
+  }
 }

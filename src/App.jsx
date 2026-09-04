@@ -1,88 +1,28 @@
-import { useState } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import Courses from "./pages/Courses.jsx";
+import CourseDetails from "./pages/CourseDetails.jsx";
+import About from "./pages/About.jsx";
 
 function App() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [course, setCourse] = useState("");
-  const [student, setStudent] = useState(null);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    setStudent({
-      name,
-      email,
-      course,
-    });
-
-    setName("");
-    setEmail("");
-    setCourse("");
-  };
-
   return (
-    <div className="container">
-      <div className="form-card">
-        <h1>Student Registration Form</h1>
-        <p className="subtitle">Enter student details to register.</p>
-
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Name</label>
-          <input
-            id="name"
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Enter your name"
-            required
-          />
-
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            required
-          />
-
-          <label htmlFor="course">Course</label>
-          <select
-            id="course"
-            value={course}
-            onChange={(e) => setCourse(e.target.value)}
-            required
-          >
-            <option value="">Select a course</option>
-            <option value="B.Tech">B.Tech</option>
-            <option value="BCA">BCA</option>
-            <option value="MCA">MCA</option>
-            <option value="BBA">BBA</option>
-          </select>
-
-          <button type="submit">Register Student</button>
-        </form>
-      </div>
-
-      {student && (
-        <div className="result-card">
-          <h2>Submitted Student Details</h2>
-          <div className="detail">
-            <span>Name</span>
-            <strong>{student.name}</strong>
-          </div>
-          <div className="detail">
-            <span>Email</span>
-            <strong>{student.email}</strong>
-          </div>
-          <div className="detail">
-            <span>Course</span>
-            <strong>{student.course}</strong>
-          </div>
+    <BrowserRouter>
+      <nav className="navbar">
+        <div className="brand">Student Portal</div>
+        <div className="nav-links">
+          <Link to="/">Home</Link>
+          <Link to="/courses">Courses</Link>
+          <Link to="/about">About</Link>
         </div>
-      )}
-    </div>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/courses" element={<Courses />} />
+        <Route path="/course/:id" element={<CourseDetails />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
